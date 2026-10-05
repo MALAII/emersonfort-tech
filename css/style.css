@@ -339,53 +339,6 @@ img, svg {
   background: rgba(255, 255, 255, 0.98);
 }
 
-/* Top Information Strip */
-.top-info-bar {
-  background: #F8FAFC;
-  border-bottom: 1px solid #E2E8F0;
-  padding: 0.45rem 0;
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-}
-
-.top-info-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.top-sectors-strip {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-weight: 500;
-  font-size: 0.75rem;
-  color: #475569;
-  flex-wrap: wrap;
-}
-
-.top-sectors-strip span {
-  opacity: 0.4;
-}
-
-.top-contact-info {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-}
-
-.top-contact-info a {
-  color: #475569;
-}
-
-.top-contact-info a:hover {
-  color: var(--color-primary);
-}
-
 /* Header Main Inner */
 .header-inner {
   display: flex;
