@@ -473,8 +473,8 @@ img, svg {
 /* --- 7. HERO SECTION (MATCHING OFFICIAL MOCKUP) --- */
 .hero-section {
   position: relative;
-  padding: clamp(2.25rem, 3.8vw, 3.5rem) 0 1.5rem 0;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 60%, #F1F5F9 100%);
+  padding: clamp(2.5rem, 4vw, 4rem) 0 2rem 0;
+  background: #FFFFFF;
   overflow: hidden;
 }
 
@@ -599,7 +599,7 @@ img, svg {
   background-color: #E2E8F0;
 }
 
-/* Right Column: Petal Mosaic & Dal Lake Visual */
+/* Right Column: Petal Mosaic & Dal Lake Visual (Seamlessly Blended) */
 .hero-visual-mockup-wrap {
   display: flex;
   align-items: center;
@@ -610,17 +610,22 @@ img, svg {
 
 .hero-visual-mockup-img {
   width: 100%;
-  max-width: 620px;
+  max-width: 660px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 16px 36px rgba(11, 19, 43, 0.08));
-  border-radius: 12px;
-  transition: transform var(--transition-base), filter var(--transition-base);
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 96% 92% at 65% 50%, rgba(0, 0, 0, 1) 78%, transparent 100%),
+                      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 1) 6%, rgba(0, 0, 0, 1) 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  transition: transform var(--transition-base);
 }
 
 .hero-visual-mockup-img:hover {
-  transform: translateY(-3px);
-  filter: drop-shadow(0 20px 42px rgba(11, 19, 43, 0.12));
+  transform: scale(1.015);
 }
 
 /* --- 8. SECTION: 9 CORE BUSINESS SECTORS (INTERACTIVE HUB) --- */
