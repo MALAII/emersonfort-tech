@@ -1337,52 +1337,96 @@ img, svg {
   border: 0;
 }
 
-/* --- 14. SERVICES PAGE SPECIFIC STYLES --- */
+/* --- 14. SERVICES PAGE SPECIFIC STYLES (MODERN BENTO GRID) --- */
 .services-filter-bar {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-bottom: var(--space-xl);
+  gap: 0.65rem;
+  margin-bottom: 2.75rem;
+  padding: 0.45rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow-sm);
 }
 
 .filter-btn {
-  background: #FFFFFF;
-  border: 1px solid var(--color-border);
+  background: transparent;
+  border: 1px solid transparent;
   color: #475569;
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 600;
   padding: 0.55rem 1.15rem;
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.filter-btn:hover,
+.filter-btn:hover {
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-subtle);
+}
+
 .filter-btn.active {
   background: var(--color-primary);
   border-color: var(--color-primary);
   color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0, 173, 239, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 173, 239, 0.3);
+  font-weight: 700;
+}
+
+/* 2-Column Modern Division Catalog Grid */
+.services-catalog-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: stretch;
 }
 
 .service-detail-card {
   background-color: #FFFFFF;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: 2.25rem 2rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px -2px rgba(11, 19, 43, 0.05);
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.service-detail-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: var(--grad-primary);
+  opacity: 0;
+  transition: opacity var(--transition-base);
 }
 
 .service-detail-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px -10px rgba(11, 19, 43, 0.1);
+  border-color: rgba(0, 173, 239, 0.4);
+}
+
+.service-detail-card:hover::before {
+  opacity: 1;
 }
 
 .service-detail-top {
@@ -1410,11 +1454,18 @@ img, svg {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform var(--transition-base);
+}
+
+.service-detail-card:hover .service-detail-icon {
+  transform: scale(1.08);
 }
 
 .service-detail-title {
-  font-size: 1.4rem;
-  margin-bottom: 0.25rem;
+  font-size: 1.35rem;
+  margin-bottom: 0.2rem;
+  color: var(--color-dark);
+  line-height: 1.25;
 }
 
 .service-detail-category {
@@ -1426,28 +1477,84 @@ img, svg {
   letter-spacing: 0.05em;
 }
 
+.service-detail-desc {
+  font-size: 0.92rem;
+  color: #64748B;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+/* Service Scope Chips */
 .service-scope-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1.25rem 0 1.5rem 0;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
 }
 
 .scope-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: #334155;
   background-color: var(--color-bg-alt);
   border: 1px solid var(--color-border);
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  transition: all var(--transition-fast);
 }
 
 .scope-chip svg {
   color: var(--color-primary);
+}
+
+.scope-chip:hover {
+  background-color: var(--color-primary-subtle);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* Statutory Operational Specs Strip */
+.service-stat-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.85rem;
+  margin-top: auto;
+  margin-bottom: 1.25rem;
+  font-size: 0.76rem;
+  color: #64748B;
+}
+
+.service-stat-strip strong {
+  color: var(--color-dark);
+}
+
+/* Service Card Action Footer */
+.service-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.service-code-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748B;
+}
+
+.service-code-label strong {
+  color: var(--color-secondary);
 }
 
 /* --- 15. CONTACT FORM STYLES --- */
