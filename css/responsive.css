@@ -1,0 +1,249 @@
+/* ==========================================================================
+   EMERSONFORT TECHNOLOGIES (OPC) PRIVATE LIMITED
+   Responsive Adaptations - Mobile, Tablet, Laptop, Desktop
+   ========================================================================== */
+
+/* --- 1. LARGE LAPTOPS & DESKTOPS (Max 1200px) --- */
+@media (max-width: 1200px) {
+  :root {
+    --container-padding: 1.25rem;
+  }
+
+  .sectors-nav-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* --- 2. TABLETS & SMALL LAPTOPS (Max 1024px) --- */
+@media (max-width: 1024px) {
+  :root {
+    --space-2xl: 3.75rem;
+    --space-xl: 2.5rem;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.9rem; }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-meta-strip {
+    justify-content: center;
+  }
+
+  .sectors-nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* --- 3. TABLETS PORTRAIT & MOBILE SCREENS (Max 768px) --- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+    --space-2xl: 2.75rem;
+    --space-xl: 2rem;
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .top-info-bar {
+    display: none; /* Clean presentation on mobile */
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-menu-wrapper {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(11, 19, 43, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+  }
+
+  .nav-menu-wrapper.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    background-color: #FFFFFF;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+    box-shadow: var(--shadow-lg);
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform var(--transition-smooth);
+  }
+
+  .nav-menu-wrapper.open .nav-menu {
+    transform: translateX(0);
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+    width: 100%;
+    padding: 0.65rem 0;
+  }
+
+  .header-cta-wrap .btn {
+    display: none; /* Moved into mobile drawer */
+  }
+
+  .mobile-drawer-cta {
+    display: block !important;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .hero-section {
+    padding: 2.5rem 0 3rem 0;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .sectors-nav-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+  }
+
+  .services-filter-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-btn {
+    flex: 0 0 auto;
+  }
+}
+
+/* --- 4. SMALL MOBILE SCREENS (Max 480px) --- */
+@media (max-width: 480px) {
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.5rem; }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .showcase-card-main {
+    padding: 1.5rem 1rem;
+  }
+
+  .showcase-sectors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-detail-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
