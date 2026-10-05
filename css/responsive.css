@@ -67,6 +67,14 @@
     gap: 1.5rem;
   }
 
+  .services-catalog-wrap .service-detail-card:only-child,
+  .services-catalog-wrap .service-detail-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .values-grid {
     grid-template-columns: repeat(2, 1fr);
   }

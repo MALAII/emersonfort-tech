@@ -91,34 +91,45 @@ function initMobileNav() {
 function initServiceFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const serviceCards = document.querySelectorAll('.service-detail-card');
-  if (!filterBtns.length || !serviceCards.length) return;
+  if (!serviceCards.length) return;
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  if (filterBtns.length) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-      const filterVal = btn.getAttribute('data-filter');
+        const filterVal = btn.getAttribute('data-filter');
 
-      serviceCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filterVal === 'all' || category === filterVal) {
-          card.style.display = 'flex';
-          card.classList.add('revealed');
-        } else {
-          card.style.display = 'none';
-        }
+        serviceCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filterVal === 'all' || category === filterVal) {
+            card.style.display = 'flex';
+            card.classList.add('revealed');
+          } else {
+            card.style.display = 'none';
+          }
+        });
       });
     });
-  });
+  }
 
-  // Check URL query parameters (e.g. ?sector=education)
+  // Check URL query parameters (e.g. ?sector=education) or anchor hash
   const urlParams = new URLSearchParams(window.location.search);
-  const sectorParam = urlParams.get('sector');
+  const sectorParam = urlParams.get('sector') || (window.location.hash ? window.location.hash.replace('#', '').replace('sector-', '') : null);
   if (sectorParam) {
-    const targetBtn = document.querySelector(`.filter-btn[data-filter="${sectorParam}"]`);
-    if (targetBtn) {
-      targetBtn.click();
+    if (filterBtns.length) {
+      const targetBtn = document.querySelector(`.filter-btn[data-filter="${sectorParam}"]`);
+      if (targetBtn) {
+        targetBtn.click();
+      }
+    }
+    const targetCard = document.querySelector(`.service-detail-card[data-category="${sectorParam}"]`) || 
+                       document.getElementById(`sector-${sectorParam}`);
+    if (targetCard) {
+      setTimeout(() => {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 250);
     }
   }
 }

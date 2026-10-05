@@ -1394,6 +1394,16 @@ img, svg {
   align-items: stretch;
 }
 
+/* Centering the 9th (odd/last) card or solitary card in the 2-column catalog grid */
+.services-catalog-wrap .service-detail-card:only-child,
+.services-catalog-wrap .service-detail-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 620px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .service-detail-card {
   background-color: #FFFFFF;
   border: 1px solid var(--color-border);
