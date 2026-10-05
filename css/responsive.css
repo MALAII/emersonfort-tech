@@ -40,7 +40,7 @@
     text-align: center;
   }
 
-  .hero-badge {
+  .hero-badge-modern {
     margin-left: auto;
     margin-right: auto;
   }
@@ -49,7 +49,7 @@
     justify-content: center;
   }
 
-  .hero-meta-strip {
+  .hero-stats-strip {
     justify-content: center;
   }
 
@@ -169,6 +169,38 @@
     font-size: 2.1rem;
   }
 
+  .floating-badge {
+    position: static;
+    margin-bottom: 0.6rem;
+    display: inline-flex;
+  }
+
+  .floating-badge-top {
+    margin-bottom: 0.6rem;
+  }
+
+  .floating-badge-bottom {
+    margin-top: 0.6rem;
+  }
+
+  .console-tabs-strip {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .console-tab-btn {
+    flex: 0 0 auto;
+    padding: 0.4rem 0.65rem;
+  }
+
+  .hero-stats-strip {
+    gap: 1rem;
+  }
+
+  .hero-stat-num {
+    font-size: 1.25rem;
+  }
+
   .sectors-nav-grid {
     grid-template-columns: 1fr;
   }
@@ -231,12 +263,8 @@
     justify-content: center;
   }
 
-  .showcase-card-main {
-    padding: 1.5rem 1rem;
-  }
-
-  .showcase-sectors-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-console-card {
+    padding: 1.35rem 1rem;
   }
 
   .service-detail-top {
