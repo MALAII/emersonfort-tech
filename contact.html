@@ -36,17 +36,44 @@
 
       <!-- Desktop & Mobile Navigation Wrapper -->
       <div class="nav-menu-wrapper" id="primary-navigation-wrapper">
-        <nav aria-label="Primary Website Navigation">
-          <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About Us</a></li>
-            <li><a href="services.html" class="nav-link">Sectors &amp; Services</a></li>
-            <li><a href="contact.html" class="nav-link active" aria-current="page">Contact Us</a></li>
-            <li class="mobile-drawer-cta" style="display:none;">
-              <a href="contact.html" class="btn btn-primary btn-block btn-shimmer">Request Consultation</a>
-            </li>
-          </ul>
-        </nav>
+        <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+        <div class="mobile-drawer-panel">
+          <div class="mobile-drawer-header">
+            <div class="mobile-drawer-brand">
+              <img src="assets/images/emerson-mark.png" alt="Emerson Logo" class="mobile-drawer-logo">
+              <div>
+                <span class="mobile-drawer-title">Emersonfort</span>
+                <span class="mobile-drawer-tag">Srinagar, J&amp;K</span>
+              </div>
+            </div>
+            <button type="button" class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close navigation menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <nav aria-label="Primary Website Navigation" class="mobile-drawer-nav">
+            <ul class="nav-menu">
+              <li><a href="index.html" class="nav-link"><span>Home</span> <span class="nav-arrow">›</span></a></li>
+              <li><a href="about.html" class="nav-link"><span>About Us</span> <span class="nav-arrow">›</span></a></li>
+              <li><a href="services.html" class="nav-link"><span>Sectors &amp; Services</span> <span class="nav-arrow">›</span></a></li>
+              <li><a href="contact.html" class="nav-link active" aria-current="page"><span>Contact Us</span> <span class="nav-arrow">›</span></a></li>
+            </ul>
+          </nav>
+          <div class="mobile-drawer-footer">
+            <a href="contact.html" class="btn btn-primary btn-block btn-shimmer">
+              Request Consultation <span class="btn-arrow">→</span>
+            </a>
+            <div class="mobile-drawer-contact">
+              <a href="mailto:info@emersontechnologies.in">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                info@emersontechnologies.in
+              </a>
+              <span>Mon – Sat: 9:30 AM – 6:00 PM IST</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="header-cta-wrap">

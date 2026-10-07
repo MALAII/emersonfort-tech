@@ -409,8 +409,24 @@ img, svg {
   letter-spacing: 0.01em;
 }
 
-/* Nav Menu */
+/* Nav Menu Desktop Flow */
 .nav-menu-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-drawer-panel {
+  display: contents;
+}
+
+.nav-backdrop,
+.mobile-drawer-header,
+.mobile-drawer-footer,
+.nav-arrow {
+  display: none;
+}
+
+.mobile-drawer-nav {
   display: flex;
   align-items: center;
 }
@@ -430,6 +446,9 @@ img, svg {
   padding: 0.5rem 0;
   position: relative;
   transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .nav-link::after {

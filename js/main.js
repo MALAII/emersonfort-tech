@@ -38,6 +38,8 @@ function initHeader() {
 function initMobileNav() {
   const toggleBtn = document.querySelector('.mobile-nav-toggle');
   const navWrapper = document.querySelector('.nav-menu-wrapper');
+  const closeBtn = document.getElementById('mobile-drawer-close');
+  const backdrop = document.getElementById('nav-backdrop');
   if (!toggleBtn || !navWrapper) return;
 
   const openDrawer = () => {
@@ -61,9 +63,17 @@ function initMobileNav() {
     }
   });
 
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeDrawer);
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', closeDrawer);
+  }
+
   // Close on backdrop click
   navWrapper.addEventListener('click', (e) => {
-    if (e.target === navWrapper) {
+    if (e.target === navWrapper || e.target.classList.contains('nav-backdrop')) {
       closeDrawer();
     }
   });
@@ -76,7 +86,7 @@ function initMobileNav() {
   });
 
   // Close when clicking a nav link
-  const navLinks = navWrapper.querySelectorAll('.nav-link');
+  const navLinks = navWrapper.querySelectorAll('.nav-link, .mobile-drawer-footer a');
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       closeDrawer();
