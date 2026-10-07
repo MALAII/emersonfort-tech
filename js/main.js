@@ -36,27 +36,29 @@ function initHeader() {
  * 2. MOBILE NAVIGATION DRAWER
  */
 function initMobileNav() {
-  const toggleBtn = document.querySelector('.mobile-nav-toggle');
-  const navWrapper = document.querySelector('.nav-menu-wrapper');
-  const closeBtn = document.getElementById('mobile-drawer-close');
-  const backdrop = document.getElementById('nav-backdrop');
-  if (!toggleBtn || !navWrapper) return;
+  const toggleBtn = document.getElementById('mobile-nav-toggle') || document.querySelector('.mobile-nav-toggle');
+  const drawer = document.getElementById('mobile-nav-drawer') || document.querySelector('.mobile-nav-drawer');
+  const closeBtn = document.getElementById('drawer-close-btn') || document.querySelector('.drawer-close-btn');
+  const backdrop = document.getElementById('drawer-backdrop') || document.querySelector('.drawer-backdrop');
+  if (!toggleBtn || !drawer) return;
 
   const openDrawer = () => {
-    navWrapper.classList.add('open');
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
     toggleBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   };
 
   const closeDrawer = () => {
-    navWrapper.classList.remove('open');
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
     toggleBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   };
 
-  toggleBtn.addEventListener('click', () => {
-    const isOpen = navWrapper.classList.contains('open');
-    if (isOpen) {
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (drawer.classList.contains('open')) {
       closeDrawer();
     } else {
       openDrawer();
@@ -71,22 +73,15 @@ function initMobileNav() {
     backdrop.addEventListener('click', closeDrawer);
   }
 
-  // Close on backdrop click
-  navWrapper.addEventListener('click', (e) => {
-    if (e.target === navWrapper || e.target.classList.contains('nav-backdrop')) {
-      closeDrawer();
-    }
-  });
-
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navWrapper.classList.contains('open')) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
       closeDrawer();
     }
   });
 
-  // Close when clicking a nav link
-  const navLinks = navWrapper.querySelectorAll('.nav-link, .mobile-drawer-footer a');
+  // Close when clicking any link inside drawer
+  const navLinks = drawer.querySelectorAll('.drawer-link, .drawer-footer a');
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       closeDrawer();
