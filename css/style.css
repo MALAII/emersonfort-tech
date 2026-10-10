@@ -609,13 +609,30 @@ img, svg {
   background-color: #E2E8F0;
 }
 
-/* Right Column: Petal Mosaic & Dal Lake Visual (Seamlessly Blended) */
+/* Right Column: Petal Mosaic & Dal Lake Visual with 5 Interactive Divisions */
 .hero-visual-mockup-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   width: 100%;
+}
+
+.hero-stage-container {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-mosaic-image-card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-visual-mockup-img {
@@ -636,6 +653,153 @@ img, svg {
 
 .hero-visual-mockup-img:hover {
   transform: scale(1.015);
+}
+
+/* 5 Floating / Interactive Division Cards Matching Edvak */
+.hero-floating-card {
+  position: absolute;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 12px;
+  padding: 0.62rem 0.95rem;
+  box-shadow: 0 10px 24px -4px rgba(11, 19, 43, 0.1), 0 3px 8px rgba(11, 19, 43, 0.04);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0;
+  animation: heroCardAppear 650ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 240ms ease;
+}
+
+@keyframes heroCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-floating-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 173, 239, 0.5);
+  box-shadow: 0 16px 32px -4px rgba(0, 173, 239, 0.22), 0 4px 12px rgba(11, 19, 43, 0.08);
+}
+
+.floating-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: #E0F4FD;
+  color: #00ADEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 173, 239, 0.2);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.card-telecom .floating-card-icon,
+.card-plumbing .floating-card-icon {
+  background-color: #F3E8FF;
+  color: #652D92;
+  border-color: rgba(101, 45, 146, 0.2);
+}
+
+.floating-card-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.floating-card-title {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0B132B;
+  white-space: nowrap;
+}
+
+.floating-card-sub {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #64748B;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+
+.floating-card-arrow {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #CBD5E1;
+  background-color: #FFFFFF;
+  color: #00ADEF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.35rem;
+  flex-shrink: 0;
+  transition: border-color 240ms ease, background-color 240ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1), color 240ms ease;
+}
+
+.card-telecom .floating-card-arrow,
+.card-plumbing .floating-card-arrow {
+  color: #652D92;
+}
+
+.hero-floating-card:hover .floating-card-arrow {
+  border-color: #00ADEF;
+  background-color: #E0F4FD;
+  transform: translateX(3px);
+}
+
+.card-telecom:hover .floating-card-arrow,
+.card-plumbing:hover .floating-card-arrow {
+  border-color: #652D92;
+  background-color: #F3E8FF;
+}
+
+/* Staggered Floating Positions on Desktop */
+.card-electronics {
+  top: 15px;
+  left: -10px;
+  animation-delay: 140ms;
+}
+
+.card-telecom {
+  top: 190px;
+  left: -25px;
+  animation-delay: 260ms;
+}
+
+.card-electrical {
+  top: 25px;
+  right: -10px;
+  animation-delay: 380ms;
+}
+
+.card-plumbing {
+  top: 215px;
+  right: -15px;
+  animation-delay: 500ms;
+}
+
+.card-it-services {
+  bottom: 12px;
+  left: 20%;
+  animation-delay: 620ms;
+  border-color: rgba(0, 173, 239, 0.35);
 }
 
 /* --- 8. SECTION: 9 CORE BUSINESS SECTORS (INTERACTIVE HUB) --- */
