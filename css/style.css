@@ -609,30 +609,13 @@ img, svg {
   background-color: #E2E8F0;
 }
 
-/* Right Column: Petal Mosaic & Dal Lake Visual with 5 Interactive Divisions */
+/* Right Column: Petal Mosaic & Dal Lake Visual (Clean & Seamless) */
 .hero-visual-mockup-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   width: 100%;
-}
-
-.hero-stage-container {
-  position: relative;
-  width: 100%;
-  min-height: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-mosaic-image-card {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero-visual-mockup-img {
@@ -655,151 +638,175 @@ img, svg {
   transform: scale(1.015);
 }
 
-/* 5 Floating / Interactive Division Cards Matching Edvak */
-.hero-floating-card {
-  position: absolute;
-  z-index: 5;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  border-radius: 12px;
-  padding: 0.62rem 0.95rem;
-  box-shadow: 0 10px 24px -4px rgba(11, 19, 43, 0.1), 0 3px 8px rgba(11, 19, 43, 0.04);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
-  text-decoration: none;
-  opacity: 0;
-  animation: heroCardAppear 650ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 240ms ease;
+/* ==========================================================================
+   SECTION: OUR 5 BUSINESS & TECHNICAL DIVISIONS
+   Dedicated 5-Division Enterprise Hub
+   ========================================================================== */
+.technical-divisions-section {
+  background-color: #FAFBFD;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
 }
 
-@keyframes heroCardAppear {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.tech-divisions-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
 }
 
-.hero-floating-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 173, 239, 0.5);
-  box-shadow: 0 16px 32px -4px rgba(0, 173, 239, 0.22), 0 4px 12px rgba(11, 19, 43, 0.08);
-}
-
-.floating-card-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background-color: #E0F4FD;
-  color: #00ADEF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid rgba(0, 173, 239, 0.2);
-  transition: background-color 200ms ease, color 200ms ease;
-}
-
-.card-telecom .floating-card-icon,
-.card-plumbing .floating-card-icon {
-  background-color: #F3E8FF;
-  color: #652D92;
-  border-color: rgba(101, 45, 146, 0.2);
-}
-
-.floating-card-text {
+.tech-division-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.65rem 1.35rem;
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  line-height: 1.25;
+  position: relative;
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
 }
 
-.floating-card-title {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
+.tech-division-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px -4px rgba(11, 19, 43, 0.08), 0 4px 12px rgba(11, 19, 43, 0.04);
+}
+
+.tech-division-card.theme-cyan:hover {
+  border-color: rgba(0, 173, 239, 0.5);
+}
+
+.tech-division-card.theme-purple:hover {
+  border-color: rgba(101, 45, 146, 0.5);
+}
+
+.tech-division-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.tech-division-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   font-weight: 700;
-  color: #0B132B;
-  white-space: nowrap;
+  color: #94A3B8;
+  letter-spacing: 0.08em;
 }
 
-.floating-card-sub {
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: #64748B;
-  white-space: nowrap;
-  margin-top: 1px;
-}
-
-.floating-card-arrow {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 1.5px solid #CBD5E1;
-  background-color: #FFFFFF;
-  color: #00ADEF;
+.tech-division-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0.35rem;
   flex-shrink: 0;
-  transition: border-color 240ms ease, background-color 240ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1), color 240ms ease;
+  transition: transform var(--transition-fast);
 }
 
-.card-telecom .floating-card-arrow,
-.card-plumbing .floating-card-arrow {
+.tech-division-card:hover .tech-division-icon {
+  transform: scale(1.08);
+}
+
+.theme-cyan .tech-division-icon {
+  background-color: #E0F4FD;
+  color: #00ADEF;
+  border: 1px solid rgba(0, 173, 239, 0.2);
+}
+
+.theme-purple .tech-division-icon {
+  background-color: #F3E8FF;
+  color: #652D92;
+  border: 1px solid rgba(101, 45, 146, 0.2);
+}
+
+.tech-division-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.65rem;
+}
+
+.tech-division-scope {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748B;
+  line-height: 1.35;
+}
+
+.tech-division-scope .scope-tag {
+  background-color: #F1F5F9;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  color: #475569;
+}
+
+.theme-cyan .tech-division-scope .scope-tag {
+  background-color: rgba(0, 173, 239, 0.08);
+  color: #0284C7;
+}
+
+.theme-purple .tech-division-scope .scope-tag {
+  background-color: rgba(101, 45, 146, 0.08);
   color: #652D92;
 }
 
-.hero-floating-card:hover .floating-card-arrow {
-  border-color: #00ADEF;
-  background-color: #E0F4FD;
+.tech-division-scope .scope-sep {
+  display: none;
+}
+
+.tech-division-desc {
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 1.35rem;
+  flex-grow: 1;
+}
+
+.tech-division-footer {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.tech-division-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap var(--transition-fast), color var(--transition-fast);
+}
+
+.theme-cyan .tech-division-link {
+  color: #00ADEF;
+}
+
+.theme-purple .tech-division-link {
+  color: #652D92;
+}
+
+.tech-division-link:hover {
+  gap: 0.75rem;
+}
+
+.tech-division-link .link-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.tech-division-link:hover .link-arrow {
   transform: translateX(3px);
-}
-
-.card-telecom:hover .floating-card-arrow,
-.card-plumbing:hover .floating-card-arrow {
-  border-color: #652D92;
-  background-color: #F3E8FF;
-}
-
-/* Staggered Floating Positions on Desktop */
-.card-electronics {
-  top: 15px;
-  left: -10px;
-  animation-delay: 140ms;
-}
-
-.card-telecom {
-  top: 190px;
-  left: -25px;
-  animation-delay: 260ms;
-}
-
-.card-electrical {
-  top: 25px;
-  right: -10px;
-  animation-delay: 380ms;
-}
-
-.card-plumbing {
-  top: 215px;
-  right: -15px;
-  animation-delay: 500ms;
-}
-
-.card-it-services {
-  bottom: 12px;
-  left: 20%;
-  animation-delay: 620ms;
-  border-color: rgba(0, 173, 239, 0.35);
 }
 
 /* --- 8. SECTION: 9 CORE BUSINESS SECTORS (INTERACTIVE HUB) --- */
